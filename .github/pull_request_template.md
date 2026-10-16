@@ -5,7 +5,7 @@ Descreva o problema e por que esta mudança é necessária.
 ## Linear
 
 - [ ] Issue Linear atribuída (sub-issue `PR: <repo> — …`)
-- [ ] Body com magic word de fechamento (`Fixes INF-xx` / `Fixes INFRA-xx`) **e** `**Linear:** [id](url)`
+- [ ] Body com `Fixes INFRA-xx` se esta PR **fecha** o card, ou `Part of INFRA-xx` se entrega só **parte** dele (não fecha no merge), **e** `**Linear:** [id](url)`
 
 ## Mudanças
 
