@@ -6,8 +6,8 @@ Use the GitHub MCP (`get_file_contents`, search pull requests, search code) in o
 
 Write review comments in **Brazilian Portuguese (pt-BR)**, pointing to file and line.
 
-PRs must cite a Linear issue (`Fixes INF-xx` / `Fixes INFRA-xx` and `**Linear:**`). Contract/endpoint changes require project docs (local or `*-docs`) **and** a PR on `isis-saude/docs` (inventory). Dependabot and internal chore with no contract impact are exempt when the body says so.
+Ponto de partida para qualquer repositório da org: `isis-saude/docs` é a única fonte de verdade (site <https://symmetrical-bassoon-4qv51go.pages.github.io/>); consulte o MCP graphify (`docs/arquitetura/graphify.md`) antes de qualquer decisão.
 
-GitHub Copilot code review always leaves a Comment (it does not block merge). Custom instructions for review are on by default (*Use custom instructions when reviewing PRs*); there is no Terraform resource for that toggle.
+PRs must cite a Linear issue (`Fixes INF-xx` / `Fixes INFRA-xx` and `**Linear:**`). Every PR with code changes must link a PR on `isis-saude/docs` (general) **and** on the sibling `<project>-docs` (detail; local README/`docs/` only when no sibling exists) — enforced by the required workflow `docs-sync-gate` (job `docs-sync` checks the links; job `copilot-docs-review` runs Copilot CLI over the diff and the linked docs PRs and blocks on `REPROVADO`). Your native review repeats the semantic check. Contract/endpoint changes additionally require the inventory row in `isis-saude/docs`. Dependabot and docs-only PRs are exempt.
 
-Agent rule for this repo: `.claude/rules/ponto-de-partida.md` (isis-saude/docs is the single source of truth; start from the docs site and the graphify MCP before any decision).
+GitHub Copilot code review leaves a Comment (approval is opt-in since 2026-09; never Request changes) — it does not block merge; `docs-sync-gate` does. Custom instructions for review are on by default (*Use custom instructions when reviewing PRs*); there is no Terraform resource for that toggle.
