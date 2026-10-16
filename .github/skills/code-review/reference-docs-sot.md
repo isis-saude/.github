@@ -50,16 +50,26 @@ SES-MG apps on EKS (vaccination, Druid, MSK, …) → **ISIS Saude → AWS/GitOp
 
 | Kind | What to require |
 |------|-----------------|
-| Platform repo | README and/or `docs/` **in this repo** (example: `gitops/docs/platform-gitops-rules.md`) updated in this PR or linked |
-| Product with sibling docs | PR in the sibling repo, same Linear ID or URL in the body |
+| Repo **with** sibling `*-docs` | PR in the sibling repo linked in the body (checked by `docs-sync-gate`); local README/`docs/` changes do **not** replace it |
+| Repo **without** sibling | README and/or `docs/` **in this repo** updated in this PR (example: `gitops/docs/platform-gitops-rules.md`) |
 
-Sibling docs repos (apps are **not** given this skill in this delivery; still check if the diff is in a product repo):
+Sibling docs repos (org listing read 2026-10-16; the gate derives the sibling by stripping `-backend -frontend -rpa -data -api -iac -indexer` from the repo name, `_` → `-`, plus `-docs`):
 
-| Product | Sibling docs repo |
-|---------|-------------------|
-| Vacinação | `vacinacao-docs` |
-| Câncer de mama | `cancer-mama-docs` |
-| Isis Platform frontend | `isis-platform-frontend-docs` |
+| Code repo(s) | Sibling docs repo |
+|--------------|-------------------|
+| `vacinacao-backend`, `vacinacao-frontend`, `vacinacao-data` | `vacinacao-docs` |
+| `cancer-mama`, `cancer-mama-backend`, `cancer-mama-rpa`, `cancer-mama-data` | `cancer-mama-docs` |
+| `cancer-mama-apuracao-eixo3-data` | none derived — link `cancer-mama-docs` (gate warns, accepts) |
+| `mamografia-backend`, `mamografia-frontend`, `mamografia-data` | `mamografia-docs` |
+| `mamografia-profissional-integrador-backend`, `-frontend`, `-data` | `mamografia-profissional-integrador-docs` |
+| `gestao-backend`, `gestao-frontend` | `gestao-docs` |
+| `isis-platform-frontend` | `isis-platform-frontend-docs` |
+| `isis_platform_api` | `isis-platform-api-docs` |
+| `isis-ingestion` | `isis-ingestion-docs` |
+| `luminai-backend`, `luminai-frontend` | `luminai-docs` |
+| `portal-rmds-backend`, `portal-rmds-frontend` | `portal-rmds-docs` |
+| `operation-center-backend`, `operation-center-frontend` | `operation-center-docs` |
+| `gitops`, `helm-charts`, `aws-sesmg-iac`, `graphify-indexer`, `azure-internalapps-iac`, landing pages, `prototipos-frontend`, `trensrj`, `kafka-logger`, `renovatio-backend`, `operations-center`, `linear_agente`, `template-ecs`, `rmds-gestao-projetos`, `codigo-fonte-sesmg` | none — local README/`docs/` |
 
 Catalog: `isis-saude/docs` → `docs/arquitetura/repos/index.md` and the repo page `docs/arquitetura/repos/<repo>.md` or `docs/arquitetura/<tema>.md`.
 
