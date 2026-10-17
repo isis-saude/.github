@@ -14,7 +14,7 @@ Descreva o problema e por que esta mudança é necessária.
 
 ## Documentação (required workflow `docs-sync-gate` — bloqueia merge)
 
-Toda PR com código precisa das **duas** PRs de docs da mesma entrega, linkadas aqui (`https://github.com/isis-saude/<repo>/pull/N` ou `isis-saude/<repo>#N`):
+Toda PR com código precisa das **duas** PRs de docs da mesma entrega, linkadas aqui (`https://github.com/isis-saude/<repo>/pull/N` ou `isis-saude/<repo>#N`). Não se aplica a PR de bot, a PR que só altera docs e aos repos `docs`, `*-docs`, `.github` e `.github-governance` ([regra completa](https://symmetrical-bassoon-4qv51go.pages.github.io/arquitetura/github-governance/#docs-sync-gate)):
 
 - Geral — PR em **`isis-saude/docs`** (página do repo em `docs/arquitetura/repos/`; inventário se criar/alterar endpoint):
 - Detalhe — PR no irmão **`<projeto>-docs`** (se o repo não tem irmão, basta alterar `README.md` / `docs/**` nesta PR):
